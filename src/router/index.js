@@ -1,0 +1,35 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+
+import login from '@/components/login'
+import home from '../views/home.vue'
+import view2 from '../views/view2.vue'
+// 引入路由模块并使用它
+Vue.use(Router)
+/*
+创建路由实例并配置路由映射
+path:'*',redirect:'/home'
+重定向到path是/home的映射
+*/
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'login',
+      component: login
+    },  
+     {
+      path: '/home',
+      component: home
+    },
+    {
+      path: '/about',
+      component: require('../components/About.vue')
+    },
+ 
+    {
+      path: '/view2',
+      component: view2
+    }
+  ]
+})
