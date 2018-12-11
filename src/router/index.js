@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import login from '@/components/login'
 import home from '../views/home.vue'
 import view2 from '../views/view2.vue'
+import view3 from '../views/view3.vue'
 // 引入路由模块并使用它
 Vue.use(Router)
 /*
@@ -20,16 +21,23 @@ export default new Router({
     },  
      {
       path: '/home',
-      component: home
+      component: home,
+      children:[
+        {
+          path: 'view2',
+          component: view2
+        },
+        {
+          path: 'view3',
+          component: view3
+        }
+      ]
     },
     {
       path: '/about',
       component: require('../components/About.vue')
     },
  
-    {
-      path: '/view2',
-      component: view2
-    }
+  
   ]
 })

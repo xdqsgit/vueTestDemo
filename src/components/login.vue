@@ -14,7 +14,7 @@
         </el-input>
       </li>
     </ul>
-    <el-button>登录</el-button>
+    <router-link to="/home" tag="el-button">登录</router-link>
     <el-button>注册</el-button>
   </div>
 </template>

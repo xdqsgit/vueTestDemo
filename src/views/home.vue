@@ -7,11 +7,12 @@
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span slot="title"> 
-        <router-link to="/view2">导航二</router-link></span>
+        <router-link to="/home/view2">导航二</router-link></span>
       </el-menu-item>
-      <el-menu-item index="3" disabled>
+      <el-menu-item index="3" >
         <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
+        <router-link tag="span" to="view3">导航三</router-link>
+        
       </el-menu-item>
       <el-menu-item index="4">
         <i class="el-icon-setting"></i>
@@ -26,7 +27,6 @@
   <el-container>
     <el-header>Header</el-header>
     <el-main>
-        Main
         <router-view></router-view>
     </el-main>
   </el-container>
