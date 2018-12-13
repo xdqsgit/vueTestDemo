@@ -1,5 +1,9 @@
 <template>
+<el-container >
+  <el-header>welcome</el-header>
+  <el-main>
 <el-container>
+
   <el-aside width="200px">
      
     <el-menu  >
@@ -7,29 +11,31 @@
       <el-menu-item index="2">
         <i class="el-icon-menu"></i>
         <span slot="title"> 
-        <router-link to="/home/view2">导航二</router-link></span>
+        <router-link to="/home/view2">栏目管理</router-link></span>
       </el-menu-item>
+
       <el-menu-item index="3" >
         <i class="el-icon-document"></i>
-        <router-link tag="span" to="view3">导航三</router-link>
-        
+        <router-link tag="span" to="categoryManager">分类管理</router-link>
       </el-menu-item>
-      <el-menu-item index="4">
+
+      <el-menu-item index="4">        
         <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
+        <span slot="title">文章管理</span>
       </el-menu-item>
 
     </el-menu>
    
   </el-aside>
+<el-main id="mainContent">
+  <transition name="el-zoom-in-bottom"> 
+    <router-view v-show="show" class="transition-box"></router-view>
+  </transition> 
 
-
-  <el-container>
-    <el-header>Header</el-header>
-    <el-main>
-        <router-view></router-view>
-    </el-main>
-  </el-container>
+</el-main>
+</el-container>
+</el-main>
+ 
 </el-container>
 </template>
 
@@ -38,6 +44,9 @@ import axios from 'axios'
 
 export default {
   name: 'home',
+  data:()=>({
+    show:true
+  }),
   mounted:function () {
         // axios.get('./jsonData/test1.json')
         // .then((result) => {
@@ -50,6 +59,10 @@ export default {
 </script>
 
 <style>
+body{
+  padding:0;
+  margin: 0;
+}
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
@@ -70,17 +83,18 @@ export default {
     text-align: center;
     line-height: 160px;
   }
-  
-  body > .el-container {
-    margin-bottom: 40px;
+  .el-container{
+    height:100%;
   }
-  
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
+     .transition-box {
+    border-radius: 4px;
+    text-align: center;
+    box-sizing: border-box;
   }
-  
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
+  #mainContent{
+     background-color: #B3C0D1;
+    color: #333;
+    text-align: center;
+    line-height: 60px;
   }
 </style>

@@ -22,10 +22,11 @@ router.beforeEach((to, from, next) => {
       next({
         path: '/login'
       })
+      return
     }
-  } else {
+  } 
     next()
-  }
+  
 })
 
 // eslint-disable-next-line no-unused-vars

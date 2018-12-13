@@ -1,13 +1,9 @@
 <template>
-  <div id="app">
-    <router-link to="/home">home</router-link>
     <router-view></router-view>
-  </div>
 </template>
 
 <script>
-import login from './components/login.vue'
-import home from './views/home.vue'
+import login from './views/login.vue'
 
 export default {
   name: 'app',
@@ -18,12 +14,8 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+html{width:100%;
+     height:100%}
+body{width:100%; 
+    height:100%;}
 </style>
