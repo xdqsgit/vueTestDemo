@@ -14,12 +14,14 @@
         </el-input>
       </li>
     </ul>
-    <router-link to="/home" tag="el-button">登录</router-link>
+    <el-button @click="login">登录</el-button>
     <el-button>注册</el-button>
   </div>
 </template>
 
 <script>
+import * as util from '../utils/util'
+
 export default {
   name: "login",
   data() {
@@ -28,6 +30,12 @@ export default {
       userId:"test",
       pwd:"123qwe"
     };
+  },
+  methods:{
+    login:function(){
+      util.setCookie("Uname",this.userId,1)
+      this.$router.push({path: '/home'});
+    }
   }
 };
 </script>

@@ -5,6 +5,7 @@ import login from '@/components/login'
 import home from '../views/home.vue'
 import view2 from '../views/view2.vue'
 import view3 from '../views/view3.vue'
+
 // 引入路由模块并使用它
 Vue.use(Router)
 /*
@@ -18,11 +19,19 @@ export default new Router({
       path: '/',
       name: 'login',
       component: login
-    },  
-     {
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
+    },
+    {
       path: '/home',
+      meta: {
+        requireAuth: true
+      },
       component: home,
-      children:[
+      children: [
         {
           path: 'view2',
           component: view2
@@ -36,8 +45,6 @@ export default new Router({
     {
       path: '/about',
       component: require('../components/About.vue')
-    },
- 
-  
+    }
   ]
 })

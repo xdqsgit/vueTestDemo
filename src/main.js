@@ -3,16 +3,33 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Axios from 'axios';
+import Axios from 'axios'
 import './plugins/element.js'
-import ElementUI from 'element-ui';
-Vue.use(ElementUI);
-import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import * as util from './utils/util'
+
+Vue.use(ElementUI)
 
 Vue.config.productionTip = false
-Vue.prototype.$ajax=Axios
-/* eslint-disable no-new */
-new Vue({
+Vue.prototype.$ajax = Axios
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    var uName = util.getCookie('Uname')
+    if (!uName) {
+      // 登 陆
+      next({
+        path: '/login'
+      })
+    }
+  } else {
+    next()
+  }
+})
+
+// eslint-disable-next-line no-unused-vars
+const app = new Vue({
   el: '#app',
   router,
   components: { App },
